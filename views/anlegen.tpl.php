@@ -29,7 +29,7 @@
 							document.getElementById("reihenfolge").value = this.response.nextReihenfolgeInt;
 						}
 					};
-					xhttp.open("GET", "http://hasashi.bplaced.net/physio_united/api/getNextReihenfolgeIntByKategorie.php?kategorie=" + kategorieInt, true);
+					xhttp.open("GET", "http://muskelabcd.bplaced.net/physio_united/api/getNextReihenfolgeIntByKategorie.php?kategorie=" + kategorieInt, true);
 					xhttp.responseType = 'json';
 					xhttp.send();
 				});
@@ -65,7 +65,7 @@
 											document.getElementById("reihenfolge").value = this.response.nextReihenfolgeInt;
 										}
 									};
-									xhttp.open("GET", "http://hasashi.bplaced.net/physio_united/api/getNextReihenfolgeIntByKategorie.php?kategorie=" + selectedKategorie, true);
+									xhttp.open("GET", "http://muskelabcd.bplaced.net/physio_united/api/getNextReihenfolgeIntByKategorie.php?kategorie=" + selectedKategorie, true);
 									xhttp.responseType = 'json';
 									xhttp.send();
 								}
@@ -79,13 +79,13 @@
 										}
 									}
 								};
-								xhttp.open("GET", "http://hasashi.bplaced.net/physio_united/api/getNextReihenfolgeIntByKategorie.php?kategorie=" + selectedKategorie, true);
+								xhttp.open("GET", "http://muskelabcd.bplaced.net/physio_united/api/getNextReihenfolgeIntByKategorie.php?kategorie=" + selectedKategorie, true);
 								xhttp.responseType = 'json';
 								xhttp.send();
 							}
 						};
 					}
-					xhttp.open("GET", "http://hasashi.bplaced.net/physio_united/api/checkExistingReihenfolge.php?kategorie=" + 1 + "&reihenfolge=" + reihenfolge.value, true);
+					xhttp.open("GET", "http://muskelabcd.bplaced.net/physio_united/api/checkExistingReihenfolge.php?kategorie=" + 1 + "&reihenfolge=" + reihenfolge.value, true);
 					xhttp.responseType = 'json';
 					xhttp.send();
 
@@ -154,7 +154,7 @@
 
 						};
 					}
-					xhttp.open("GET", "http://hasashi.bplaced.net/physio_united/api/checkExistingReihenfolge.php?kategorie=" + 1 + "&reihenfolge=" + reihenfolge, true);
+					xhttp.open("GET", "http://muskelabcd.bplaced.net/physio_united/api/checkExistingReihenfolge.php?kategorie=" + 1 + "&reihenfolge=" + reihenfolge, true);
 					xhttp.responseType = 'json';
 					xhttp.send();
 
