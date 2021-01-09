@@ -164,7 +164,7 @@ FROM muskeln WHERE id = $id");
 	{
 		$abfrage = $db->query("SELECT UPDATE_TIME
 		FROM information_schema.tables
-		WHERE TABLE_SCHEMA = 'hasashi_physio-united'
+		WHERE TABLE_SCHEMA = 'muskelabcd_muskelDB'
 		AND TABLE_NAME = 'muskeln';");
 		// $abfrage = $db->query("select update_time
 		// from information_schema.tables tab
