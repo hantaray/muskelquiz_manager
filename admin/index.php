@@ -4,35 +4,35 @@ include("models/benutzer.php");
 include("models/muskel.php");
 // include("lib/functions.php");
 
-// session_start();
+session_start();
 
 
-// if(isset($_GET["logout"])){
-// 	$_SESSION = array();
-// 	session_destroy();
-// 	header("Location:../index.php");
-// }
+if(isset($_GET["logout"])){
+	$_SESSION = array();
+	session_destroy();
+	header("Location:../index.php");
+}
 
-// if(isset($_POST["benutzer"]))
-// {
-// 	$benutzerDaten = Benutzer::getBenutzerDaten($db);
-// 	foreach($benutzerDaten as $einBenutzerDaten){	
-// 		if($_POST["benutzer"] == $einBenutzerDaten['name'] && $_POST["passwort"] == $einBenutzerDaten['password'])
-// 		{
-// 			$_SESSION["benutzer"] = $_POST["benutzer"];
-// 		}
-// 	}
-// 	if(!isset($_SESSION["benutzer"]))
-// 	{
-// 		exit("<p>Kein Zugang2. Bitte überprüfen Sie den Benutzernamen und das Passwort.<br />
-// 		<a href='index.php?aktion=login'>Zum Login</a></p>");
-// 	}
-// }
-// elseif(!isset($_SESSION["benutzer"]))
-// 	{
-// 		exit("<p>Kein Zugang1. Bitte überprüfen Sie den Benutzernamen und das Passwort.<br />
-// 		// <a href='index.php?aktion=login'>Zum Login</a>");
-// 	}
+if(isset($_POST["benutzer"]))
+{
+	$benutzerDaten = Benutzer::getBenutzerDaten($db);
+	foreach($benutzerDaten as $einBenutzerDaten){	
+		if($_POST["benutzer"] == $einBenutzerDaten['benutzername'] && $_POST["passwort"] == $einBenutzerDaten['password'])
+		{
+			$_SESSION["benutzer"] = $_POST["benutzer"];
+		}
+	}
+	if(!isset($_SESSION["benutzer"]))
+	{
+		exit("<p>Kein Zugang. Bitte überprüfen Sie den Benutzernamen und das Passwort.<br />
+		<a href='../index.php?aktion=login'>Zum Login</a></p>");
+	}
+}
+elseif(!isset($_SESSION["benutzer"]))
+	{
+		exit("<p>Kein Zugang. Bitte überprüfen Sie den Benutzernamen und das Passwort.<br />
+		// <a href='../index.php?aktion=login'>Zum Login</a>");
+	}
 
 if (isset($db)) {
 
@@ -146,9 +146,13 @@ if (isset($db)) {
 			$view = "login";
 			break;
 
+		case "logout":
+			$view = "login";
+			break;
+
 		default:
 			$muskeln = Muskel::getMuskeln($db);
-			$view = "login";
+			$view = "allesAnzeigen";
 			break;
 	}
 
