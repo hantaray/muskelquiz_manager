@@ -1,9 +1,15 @@
 <?php include("_head.tpl.php"); ?>
 
+<?php
+session_start();
+session_destroy();
+$_SESSION = array();
+?>
+
 <div class="container">
 	<?php include "nav.tpl.php"; ?>
 		<div class="row">
-			<form method="POST" action="admin/index.php">
+			<form method="POST" action="index.php?aktion=allesAnzeigen">
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="benutzer">Benutzer</label>
