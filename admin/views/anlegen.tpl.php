@@ -157,25 +157,6 @@
 					xhttp.open("GET", "http://muskelabcd.bplaced.net/physio_united/api/checkExistingReihenfolge.php?kategorie=" + 1 + "&reihenfolge=" + reihenfolge, true);
 					xhttp.responseType = 'json';
 					xhttp.send();
-
-					// var x = document.forms["anlegenFom"]["name"].value;
-					// if (x == "") {
-					// 	alert("Name must be filled out");
-					// 	return false;
-					// }
-					// var kategorieSelected = false;
-
-					// var ele = document.querySelectorAll(".btn-group > .btn");
-					// for (var i = 0; i < ele.length; i++) {
-					// 	console.log(this.inneHTML);
-					// 	if (this.checked) {
-					// 		kategorieSelected = true;
-					// 	}
-					// 	if (!kategorieSelected) {
-					// 		alert("Bitte wählen Sie eine Kategorie");
-					// 		return false;
-					// 	}
-					// }
 				}
 			</script>
 

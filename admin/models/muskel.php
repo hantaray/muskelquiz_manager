@@ -166,13 +166,6 @@ FROM muskeln WHERE id = $id");
 		FROM information_schema.tables
 		WHERE TABLE_SCHEMA = 'muskelabcd_muskelDB'
 		AND TABLE_NAME = 'muskeln';");
-		// $abfrage = $db->query("select update_time
-		// from information_schema.tables tab
-		// where table_type = 'BASE TABLE'
-		//   and table_schema not in ('information_schema', 'sys',
-		// 					   'performance_schema','mysql')
-		//   -- and table_schema = 'muskeln' 
-		// order by update_time desc;");
 		return $abfrage;
 	}
 
@@ -188,13 +181,6 @@ FROM muskeln WHERE id = $id");
 		$abfrage = $db->query("SELECT id AS reihenfolgeIntExists FROM `muskeln` WHERE `kategorie`= $kategorie AND `reihenfolge`= $reihenfolge");
 		$abfrage->setFetchMode(PDO::FETCH_ASSOC);
 		return $abfrage;
-		// $result = $abfrage->execute();
-		// $table = $result->fetch(PDO::FETCH_ASSOC);
-		// if (empty($result) ) {
-		// 	return $table['reihenfolgeIntExists'] = false;
-		// } else {
-		// 	return $table['reihenfolgeIntExists'] = true;
-		// }
 	}
 
 	public static function updateReihenfolge($db, $id, $reihenfolge)

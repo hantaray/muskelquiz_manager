@@ -2,37 +2,6 @@
 include("lib/db.php");
 include("models/benutzer.php");
 include("models/muskel.php");
-// include("lib/functions.php");
-
-// session_start();
-
-
-// if(isset($_GET["logout"])){
-// 	$_SESSION = array();
-// 	session_destroy();
-// 	header("Location:../index.php");
-// }
-
-// if(isset($_POST["benutzer"]))
-// {
-// 	$benutzerDaten = Benutzer::getBenutzerDaten($db);
-// 	foreach($benutzerDaten as $einBenutzerDaten){	
-// 		if($_POST["benutzer"] == $einBenutzerDaten['name'] && $_POST["passwort"] == $einBenutzerDaten['password'])
-// 		{
-// 			$_SESSION["benutzer"] = $_POST["benutzer"];
-// 		}
-// 	}
-// 	if(!isset($_SESSION["benutzer"]))
-// 	{
-// 		exit("<p>Kein Zugang2. Bitte überprüfen Sie den Benutzernamen und das Passwort.<br />
-// 		<a href='index.php?aktion=login'>Zum Login</a></p>");
-// 	}
-// }
-// elseif(!isset($_SESSION["benutzer"]))
-// 	{
-// 		exit("<p>Kein Zugang1. Bitte überprüfen Sie den Benutzernamen und das Passwort.<br />
-// 		// <a href='index.php?aktion=login'>Zum Login</a>");
-// 	}
 
 if (isset($db)) {
 
@@ -46,14 +15,8 @@ if (isset($db)) {
 			$muskel = Muskel::getMuskel($db, $id);
 
 			if (isset($_POST['speichern'])) {
-				// if(validiereMuskel($_POST) === true){
-
 				// Keep Kategorie, so we don't have to handle reihenfolge-id
 				$kategorie = $muskel[0]->getKategorie();
-				// set prvious Kategorie if not changed
-				// if ($_POST['kategorie'] != 0) {
-				// 	$kategorie = $_POST['kategorie'];
-				// }
 
 				$daten = array(
 					"reihenfolge" => $_POST['reihenfolge'],
@@ -81,9 +44,6 @@ if (isset($db)) {
 
 				Muskel::updateMuskel($db, $daten);
 				header("Location: index.php");
-				// 	}else{
-				// 		$fehler = validiereMuskel($_POST);	
-				// 	}
 			}
 			if (isset($_POST['abbrechen'])) {
 				header("Location: index.php");
@@ -109,8 +69,6 @@ if (isset($db)) {
 
 		case "anlegen":
 			if (isset($_POST['speichern'])) {
-				//Prüfe Daten auf Validität
-				// if(validiereMuskel($_POST) === true){
 				//Speichere in DB
 				$daten = array(
 					$_POST['reihenfolge'],
@@ -131,16 +89,9 @@ if (isset($db)) {
 				// insert Muskel
 				Muskel::insertMuskel($db, $daten);
 				header("Location: index.php");
-				// } else{
-				// $fehler = validiereMuskel($_POST);	
-				// }
 			}
 			$view = "anlegen";
 			break;
-
-			// case "impressum":
-			// $view = "impressum";
-			// break;
 
 		case "login":
 			$view = "login";
